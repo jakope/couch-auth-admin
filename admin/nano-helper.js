@@ -3,9 +3,6 @@ const create = (url)=>{
     console.log("url",url);
 let nano = Nano({
   url,
-  requestDefaults: {
-    jar: true,
-  },
 });
 return nano;
 }
