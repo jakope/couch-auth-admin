@@ -1,9 +1,7 @@
-import Nano from 'nano';
+import * as Nano  from 'nano'
 const create = (url)=>{
-    console.log("url",url);
-let nano = Nano({
-  url,
-});
+    console.log("url 2",url);
+let nano = Nano(url);
 return nano;
 }
 export default create;

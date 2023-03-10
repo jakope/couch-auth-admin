@@ -22,7 +22,9 @@ const init = (couchAuth) => {
     router.use("/api",apiRouter);
     couchAuth.adminRouter = router;
     const { protocol, user,password, host} = couchAuth.config.dbServer;
+    
     const url = protocol + user + ":" + password + "@" + host;
+    console.log("init host",url);
     couchAuth.nano = createNano(url);
     return couchAuth;
 }
