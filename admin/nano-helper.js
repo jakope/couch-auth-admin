@@ -1,4 +1,4 @@
-import * as Nano  from 'nano'
+import Nano  from 'nano'
 const create = (url)=>{
     console.log("url 2",url);
 let nano = Nano(url);

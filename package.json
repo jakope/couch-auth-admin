@@ -1,6 +1,6 @@
 {
   "name": "@jakope/couch-auth-admin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Admin panel with easy user edit for https://github.com/perfood/couch-auth",
   "main": "index.js",
   "type": "module",
