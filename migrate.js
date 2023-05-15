@@ -1,4 +1,4 @@
-import createNano from "./admin/nano-helper.js";
+import createNano from "./nano-helper.js";
 import { v4 as uuidv4 } from "uuid";
 import URLSafeBase64 from 'urlsafe-base64';
 const USER_REGEXP = /^[a-z0-9_-]{3,16}$/;
@@ -51,9 +51,17 @@ export const replicateDatabase = async function (url,dbname, newUrl, newDbname){
 export const createNewUsersdb = async function (dburl,oldDb,newDb){
     console.log("host",dburl,oldDb,newDb);
     const nano = createNano(dburl);
-    console.log("replication done");
+    
     const users = nano.db.use(oldDb);
+    console.log("newDb",newDb);
+try{
     await nano.db.create(newDb);
+console.log("userdb created");
+}catch(e){
+
+}
+
+
     const newDatabase = nano.db.use(newDb);
     console.log("new UserDb created");
     console.log("start fetching userslist");
