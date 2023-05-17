@@ -60,8 +60,6 @@ console.log("userdb created");
 }catch(e){
 
 }
-
-
     const newDatabase = nano.db.use(newDb);
     console.log("new UserDb created");
     console.log("start fetching userslist");
@@ -70,14 +68,13 @@ console.log("userdb created");
     for(const doc of doclist.rows){
         const user_uid = await uuidv4();
         const newId = removeHyphens(user_uid);
-        const legady_user_id = await generateUsername(newDatabase);
-        
+        //const legady_user_id = await generateUsername(newDatabase);
         const fullDoc = await users.get(doc.id);
         let newDoc = {
             ...fullDoc,
             user_uid,
             _id : newId,
-            key : legady_user_id,
+            key : doc.id,
         }
         delete newDoc._rev;
         await newDatabase.insert(newDoc);
